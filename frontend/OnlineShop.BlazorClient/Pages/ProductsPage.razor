@@ -1,0 +1,37 @@
+@page "/Products"
+@using OnlineShop.Domain.Entities
+@using OnlineShop.HttpClient
+<h3>Products</h3>
+@inject IShopClient ShopClient;
+@if (_products is null)
+{
+    <div>ЗАГРУЗКА...</div>
+}
+else
+{
+    foreach (var product in _products)
+    {
+        <p>@product.Id</p>
+        <p>@product.Name</p>
+        <p>@product.Price</p>
+        <a href="/ProductInfo/get_by_id/@product.Id"> INFORMATION</a>
+
+    }
+    
+}
+
+@code {
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        
+        
+        await base.OnInitializedAsync();
+        _products = await ShopClient.GetProducts(cancellationToken:default);
+    }
+
+    private IReadOnlyCollection<Product>? _products;
+}
+
+}

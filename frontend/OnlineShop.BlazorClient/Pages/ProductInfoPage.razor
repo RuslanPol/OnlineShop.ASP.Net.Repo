@@ -1,0 +1,31 @@
+@page "/ProductInfo/get_by_id/{ProductId:guid}"
+@using OnlineShop.Domain.Entities
+@using OnlineShop.HttpClient
+<h3>ProductPage</h3>
+@inject IShopClient ShopClient;
+
+@if (_product is null)
+{
+    <div>ЗАГРУЗКА...</div>
+}
+else
+{
+    <p>@_product.Id</p>
+    <p>@_product.Name</p>
+    <p>@_product.Price</p>
+}
+
+@code {
+    private Product? _product;
+    
+[Parameter]
+    public Guid ProductId { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        _product = await ShopClient.GetProduct(
+            ProductId,cancellationToken:default).ConfigureAwait(false);
+    }
+
+   
+}

@@ -1,0 +1,30 @@
+@page "/register"
+@using Microsoft.AspNetCore.Components
+@using OnlineShop.HttpClient
+@using OnlineShop.Models.Requests
+@using Blazored.LocalStorage
+
+@inject IShopClient ShopClient;
+@inject ILocalStorageService LocalStorage;
+<h3>RegisterPage</h3>
+<EditForm Model="_request" OnValidSubmit="Register">
+    <DataAnnotationsValidator/>
+    Name:<input type="text" @bind-value="@_request.Name"/><br/>
+    Email:<input type="email" @bind-value="@_request.Email"/><br/>
+    Password:<input type="password" @bind-value="@_request.PasswordHash"/><br/>
+    <input type="submit" value="Enter">
+    <ValidationSummary/>
+</EditForm>
+
+
+@code {
+    private readonly RegisterRequest _request = new RegisterRequest();
+
+    private async Task Register()
+    {
+        await ShopClient.Register(_request, cancellationToken: default);
+      
+    }
+
+    
+}
