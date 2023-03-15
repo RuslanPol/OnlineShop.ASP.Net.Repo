@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0E1FD4C0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.WebApi.InegrationsTests", "OnlineShop.WebApi.InegrationsTests\OnlineShop.WebApi.InegrationsTests.csproj", "{942FE524-9B99-4922-B8EF-2D9A5873FAC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Domain.Test", "backend\OnlineShop.Domain.Test\OnlineShop.Domain.Test.csproj", "{E3533103-0E6A-4DF4-96F1-074B6AC82775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{942FE524-9B99-4922-B8EF-2D9A5873FAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{942FE524-9B99-4922-B8EF-2D9A5873FAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{942FE524-9B99-4922-B8EF-2D9A5873FAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3533103-0E6A-4DF4-96F1-074B6AC82775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3533103-0E6A-4DF4-96F1-074B6AC82775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3533103-0E6A-4DF4-96F1-074B6AC82775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3533103-0E6A-4DF4-96F1-074B6AC82775}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E198CB2A-FA0B-40B4-9027-B450AB8962AE} = {C95B37C9-428E-44CF-9E22-923CAD93BD75}
@@ -79,5 +85,6 @@ Global
 		{A76EBF51-4AC3-424E-AB54-54FB849F06EF} = {F5910B64-EBEB-484B-8361-0D22B76EBF17}
 		{C99E293B-6D1A-4BD2-824C-A773D84B072B} = {CA9AAD37-A912-4E3F-B260-C1A8E91D9E18}
 		{942FE524-9B99-4922-B8EF-2D9A5873FAC3} = {0E1FD4C0-FDE3-46B8-B6E9-F7D73CB0C865}
+		{E3533103-0E6A-4DF4-96F1-074B6AC82775} = {CA9AAD37-A912-4E3F-B260-C1A8E91D9E18}
 	EndGlobalSection
 EndGlobal
