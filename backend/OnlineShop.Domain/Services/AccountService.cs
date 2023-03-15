@@ -26,7 +26,7 @@ namespace OnlineShop.Domain.Services
             _uow = uow;
         }
 
-        public virtual async Task<(Account account,string token)> Register(
+        public virtual async Task<Account> Register(
             string name, string email, string password, CancellationToken cancellationToken)
         {
             if (name == null) throw new ArgumentNullException(nameof(name));
@@ -48,8 +48,8 @@ namespace OnlineShop.Domain.Services
             await _uow.CartRepository.Add(cart, cancellationToken);
             await _uow.CommitAsync(cancellationToken);
             
-            var token = _tokenSevice.GenerateToken(account);
-            return (account,token);
+           
+            return (account);
         }
 
         public virtual async Task<(Account account,string token)> LogIn(

@@ -14,10 +14,12 @@ namespace OnlineShop.WebApi.Controllers
     public class AccountController : ControllerBase
     {
         private readonly AccountService _accountService;
+        private readonly ITokenService _tokenSevice;
 
-        public AccountController(AccountService accountService)
+        public AccountController(AccountService accountService,ITokenService tokenSevice)
         {
             _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
+            _tokenSevice = tokenSevice;
         }
 
         /// <summary>
@@ -33,11 +35,11 @@ namespace OnlineShop.WebApi.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<RegisterResponse>> Register(
             RegisterRequest request, CancellationToken cancellationToken){
-        
-                var (account, token) =
+            
+                var account =
                     await _accountService.Register(
                         request.Name, request.Email, request.PasswordHash, cancellationToken);
-                //var token = _tokenSevice.GenerateToken(account);
+                var token = _tokenSevice.GenerateToken(account);
                 return new RegisterResponse(account.Id, account.Name, account.Email, token);
            
         }

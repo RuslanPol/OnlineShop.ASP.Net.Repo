@@ -8,13 +8,15 @@ public class CartTest
 {
     [Fact]
     public void New_cart_is_empty()
-    {
+    { 
+        //Arrange
         var cart = new Cart()
         {
             Id = Guid.Empty,
             AccountId = Guid.Empty,
             Items = new List<Cart.CartItem>()
         };
+        //Act and Assert
         Assert.Empty(cart.Items);
     }
 
@@ -67,8 +69,10 @@ public class CartTest
         };
         var product = new Product(Guid.NewGuid(), "Собачье сердце", 500);
         var quantity = 2d;
+        //Act
         cart.Add(product, 1);
         cart.Add(product, 1);
+        //Assert
         Cart.CartItem item = cart.Items.First();
         Assert.NotNull(item);
         Assert.Equal(product.Id, item.ProductId);
